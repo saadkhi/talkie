@@ -38,7 +38,17 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "talkie_app",  # Your app name
+    "tailwind",    # Tailwind CSS integration
+    "theme",       # <-- Add this line
+    "django_browser_reload",  # For live reloading during development
 ]
+
+TAILWIND_APP_NAME = "theme"  # Name of your Tailwind app
+internal_ips = [
+    "127.0.0.1",
+]
+
+NPM_BIN_PATH = "/home/saad/.nvm/versions/node/v20.19.1/bin/npm"
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
@@ -48,6 +58,8 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+
+    "django_browser_reload.middleware.BrowserReloadMiddleware",  # For live reloading
 ]
 
 ROOT_URLCONF = "talkie.urls"
