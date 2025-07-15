@@ -20,6 +20,7 @@
     <p class="mt-2 text-gray-700">{{ plan.description }}</p>
     <p class="mt-4 text-lg font-bold">Price: ${{ plan.price }}</p>
     <p class="mt-4 text-lg font-bold">Type: {{ plan.type }}</p>
+    <p class="mt-4 text-lg font-bold">Duration: {{ plan.duration }}</p>
     <div class="mt-6 text-center">
     <a href="/contact/" class="inline-block px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg shadow hover:bg-blue-700 transition">
         Contact Us for More Info
@@ -27,8 +28,14 @@
     <a href="/contact/" class="align-center mt-6 inline-block px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg shadow hover:bg-blue-700 transition">
         Subscribe Now
     </a>
+    <a href="/download/{{ plan.id }}/" class="align-center mt-6 inline-block px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg shadow hover:bg-blue-700 transition">
+        Download Plan
+    </a>
     </div>
   </div>
 
+
+
+  
 </div>
 {% endblock %}
