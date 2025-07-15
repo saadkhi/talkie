@@ -23,6 +23,7 @@ urlpatterns = [
     path("", views.home, name="home"),
     path("about/", views.about, name="about"),
     path("contact/", views.contact, name="contact"),
+    path("plan/<int:plan_id>/", views.plan_details, name="plan_details"),
 
 
     path("reload/", include("django_browser_reload.urls")),  # For live reloading

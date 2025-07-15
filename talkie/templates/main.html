@@ -6,11 +6,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title class="text-2xl font-bold text-blue-600">
     {% block title %}Talkie{% endblock %}
+    </title>
     <link rel="stylesheet" href="{% static 'style.css' %}">
     {% tailwind_css %}
 </head>
-<body>
+<body class="bg-blue-600 text-gray-800">
     {% block content %}
     <h1>Welcome to Talkie</h1>
     <p>Your platform for engaging conversations.</p>

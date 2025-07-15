@@ -3,7 +3,7 @@
 {% block title %}Talkie - Home{% endblock %}
 
 {% block content %}
-<div class="min-h-screen bg-gradient-to-b from-white via-blue-50 to-blue-100 px-6 py-10">
+<div class="bg-gradient-to-b from-white via-blue-50 to-blue-100 px-6 py-10">
   <div class="max-w-4xl mx-auto text-center">
     <h1 class="text-5xl font-extrabold text-blue-700 mb-6 drop-shadow-sm">
       👋 Welcome to <span class="text-red-500">Talkie</span>
@@ -29,10 +29,33 @@
     </div>
   </div>
 </div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto mt-10">
+  <!-- ✅ Displaying Plans -->
+  <h2 class="text-3xl font-bold text-center mb-6 col-span-full">Our Plans</h2>
+{% for plan in all_plans %}
+  <div class="grid bg-white w-full p-6 rounded-lg shadow hover:shadow-lg transition justify-items-center text-center">
+    <h2>{{ plan.name }}</h2>
+    <img src="{{ plan.image.url }}" alt="{{ plan.name }}" class="w-50 h-100">
+
+    <!-- Button shown below image -->
+    <a href="{% url 'plan_details' plan.id %}">
+      <Buttons
+        Type="Buttons"
+        class="inline-flex items-center w-[100]  bg-blue-600 text-white font-semibold rounded-lg shadow hover:bg-blue-700 transition px-4 py-2 mt-4"
+      >
+        {{ plan.type }}
+      </Buttons>
+    </a>
+    {% comment %} <p>Type: {{ plan.type }}</p> {% endcomment %}
+
+  </div>
+{% endfor %}
+</div>
 {% endblock %}
 
 {% block footer %}
 <footer class="bg-white border-t mt-10 py-4 text-center text-sm text-gray-500">
   <p>&copy; 2023 Talkie. All rights reserved.</p>
 </footer>
+
 {% endblock %}
