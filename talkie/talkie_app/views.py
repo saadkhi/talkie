@@ -3,6 +3,8 @@ from django.shortcuts import get_object_or_404
 from django.http import HttpResponse, Http404
 
 from .models import talkie_user_models
+from .forms import TalkieUserModelForm
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 def home(request):
@@ -28,3 +30,14 @@ def about(request):
 
 def contact(request):
     return render(request, 'website/contact.html')
+
+def plan_available(request):
+    plan = None
+    if request.method == 'POST':
+        form = TalkieUserModelForm(request.POST)
+        if form.is_valid():
+            subscription_type = form.cleaned_data['subscription_type']
+            plan = talkie_user_models.objects.filter(type=subscription_type).first()
+    else:
+        form = TalkieUserModelForm()
+    return render(request, 'website/plan_available.html', {'form': form, 'plan': plan})
