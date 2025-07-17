@@ -41,3 +41,8 @@ def plan_available(request):
     else:
         form = TalkieUserModelForm()
     return render(request, 'website/plan_available.html', {'form': form, 'plan': plan})
+
+
+def plan_store(request):
+    plans = talkie_user_models.objects.all()
+    return render(request, 'website/plan_store.html', {'plans': plans}) 
