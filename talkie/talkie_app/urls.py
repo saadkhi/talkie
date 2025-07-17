@@ -26,7 +26,9 @@ urlpatterns = [
     path("plan/<int:plan_id>/", views.plan_details, name="plan_details"),
     path("download/<int:plan_id>/", views.download_plan, name="download_plan"),     # <-- Add this line
     path("plan_available/", views.plan_available, name="plan_available"),
+    path("plan_store/", views.plan_store, name="plan_store"),
 
+    
 
     path("reload/", include("django_browser_reload.urls")),  # For live reloading
 ]
